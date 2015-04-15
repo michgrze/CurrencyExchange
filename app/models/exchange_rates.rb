@@ -15,13 +15,13 @@ class ExchangeRates
         if idx < 4
           if line =~ /.*data-amount.*/
 
-            currency = CURRENCY_NAMES[idx]
+            code = CURRENCY_NAMES[idx]
 
             a = line.index('data-amount')
             buy = line[a + 13, 6]
             sell = line[a + 39, 6]
 
-            rates[currency] = { sell: sell, buy: buy }
+            rates[code] = ExchangeRate.new(code: code, sell: sell, buy: buy)
 
             idx += 1
 

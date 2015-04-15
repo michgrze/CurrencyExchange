@@ -10,8 +10,8 @@
   <% @rates.each do |code, rate| %>
     <tr>
       <td><%= code %></td>
-      <td><%= rate[:buy] %></td>
-      <td><%= rate[:sell] %></td>
+      <td><%= rate.buy %></td>
+      <td><%= rate.sell %></td>
     </tr>
   <% end %>
 </table>
