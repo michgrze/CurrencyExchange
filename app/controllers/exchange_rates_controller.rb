@@ -7,6 +7,8 @@ class ExchangeRatesController < ApplicationController
 
     idx = 0
 
+    @currency_names = @CURRENCY_NAMES
+
     open("http://kantor.aliorbank.pl/forex") do |f|
       @buy_all = {}
       @sell_all = {}
