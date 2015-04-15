@@ -1,6 +1,6 @@
 class ExchangeRate
 
-  attr_reader :currency_code, :sell, :buy
+  attr_reader :code, :sell, :buy
 
   def initialize(options = {})
     @code = options[:code]

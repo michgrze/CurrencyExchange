@@ -7,9 +7,9 @@
     <td>BUY RATE</td>
     <td>SELL RATE</td>
   </tr>
-  <% @rates.each do |code, rate| %>
+  <% @rates.each do |rate| %>
     <tr>
-      <td><%= code %></td>
+      <td><%= rate.code %></td>
       <td><%= rate.buy %></td>
       <td><%= rate.sell %></td>
     </tr>
