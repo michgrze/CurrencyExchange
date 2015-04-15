@@ -1,17 +1,19 @@
 <h1>EXCHANGE RATES</h1>
-<h3>Current (<%= @current_date %>) exchange rates:</h3>
-<h4>Alior Bank</h4>
-<table>
+<h2>Current (<%= @current_date %>) exchange rates:</h2>
+
+<h3>Alior Bank</h3>
+
+<table id="exchange-rates">
   <tr>
     <td>CURRENCY</td>
-    <td>BUY RATE</td>
-    <td>SELL RATE</td>
+    <td>BUY</td>
+    <td>SELL</td>
   </tr>
   <% @rates.each do |rate| %>
     <tr>
-      <td><%= rate.code %></td>
-      <td><%= rate.buy %></td>
-      <td><%= rate.sell %></td>
+      <td class="code"><%= rate.code %></td>
+      <td class="buy"><%= rate.buy %></td>
+      <td class="sell"><%= rate.sell %></td>
     </tr>
   <% end %>
 </table>
