@@ -3,7 +3,7 @@ class ExchangeRatesController < ApplicationController
   def index
     require 'open-uri'
     @current_date = Time.new.strftime("%Y-%m-%d")
-    @CURRENCY_NAMES = ["EUR", "USD", "CHF", "GBP"]
+    @CURRENCY_NAMES = %w{EUR USD CHF GBP}
 
     idx = 0
 
