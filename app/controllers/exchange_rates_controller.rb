@@ -9,9 +9,9 @@ class ExchangeRatesController < ApplicationController
 
     @currency_names = @CURRENCY_NAMES
 
+    @rates = {}
+
     open("http://kantor.aliorbank.pl/forex") do |f|
-      @buy_all = {}
-      @sell_all = {}
       f.each_line do |line|
         if idx < 4
           if line =~ /.*data-amount.*/
@@ -22,8 +22,7 @@ class ExchangeRatesController < ApplicationController
             buy = line[a + 13, 6]
             sell = line[a + 39, 6]
 
-            @buy_all[currency] = buy
-            @sell_all[currency] = sell
+            @rates[currency] = { sell: sell, buy: buy }
 
             idx += 1
 

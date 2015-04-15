@@ -10,8 +10,8 @@
   <% @currency_names.each do |currency| %>
     <tr>
       <td><%= currency %></td>
-      <td><%= @buy_all[currency] %></td>
-      <td><%= @sell_all[currency] %></td>
+      <td><%= @rates[currency][:buy] %></td>
+      <td><%= @rates[currency][:sell] %></td>
     </tr>
   <% end %>
 </table>
