@@ -5,24 +5,26 @@ class ExchangeRatesController < ApplicationController
     @current_date = Time.new.strftime("%Y-%m-%d")
     @CURRENCY_NAMES = ["EUR", "USD", "CHF", "GBP"]
 
+    idx = 0
+
     open("http://kantor.aliorbank.pl/forex") do |f|
-      counter = 0
-      @i = 0
-      @buy_all = []
-      @sell_all = []
+      @buy_all = {}
+      @sell_all = {}
       f.each_line do |line|
-        if counter < 4
+        if idx < 4
           if line =~ /.*data-amount.*/
-            counter +=1
+
+            currency = @CURRENCY_NAMES[idx]
+            
             a = line.index('data-amount')
-            #puts "\n"
-            #puts line[a - 5, 3]
             buy = line[a + 13, 6]
-            @buy_all << buy
             sell = line[a + 39, 6]
-            @sell_all << sell
-            #puts "Buy: #{buy}"
-            #puts "Sell: #{sell}" +"\n"
+
+            @buy_all[currency] = buy
+            @sell_all[currency] = sell
+
+            idx += 1
+
           end
         end
       end
