@@ -4,7 +4,7 @@ class ExchangeRates
 
   CURRENCY_NAMES = %w{EUR USD CHF GBP}
 
-  def fetch
+  def self.all
 
     idx = 0
 

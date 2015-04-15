@@ -7,11 +7,11 @@
     <td>BUY RATE</td>
     <td>SELL RATE</td>
   </tr>
-  <% @currency_names.each do |currency| %>
+  <% @rates.each do |code, rate| %>
     <tr>
-      <td><%= currency %></td>
-      <td><%= @rates[currency][:buy] %></td>
-      <td><%= @rates[currency][:sell] %></td>
+      <td><%= code %></td>
+      <td><%= rate[:buy] %></td>
+      <td><%= rate[:sell] %></td>
     </tr>
   <% end %>
 </table>
