@@ -1,5 +1,6 @@
-module Parsers
+require 'open-uri'
 
+module Parsers
   class Alior
 
     CURRENCY_NAMES = %w{EUR USD CHF GBP}

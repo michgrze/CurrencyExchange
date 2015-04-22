@@ -2,8 +2,12 @@ class ExchangeRate
 
   attr_reader :code, :sell, :buy
 
-  def self.all
+  def self.alior_all
     Parsers::Alior.new.fetch
+  end
+
+  def self.walutomat_all
+    Parsers::Walutomat.new.fetch
   end
 
   def initialize(options = {})
