@@ -1,9 +1,4 @@
 require 'open-uri'
-<<<<<<< HEAD
-=======
-
-module Parsers
->>>>>>> eecc6adac1bea8740ae4f0bcb061155412ead807
 
 module Parsers
   class Alior

@@ -2,35 +2,11 @@
 <h2>Current (<%= @current_date %>) exchange rates:</h2>
 
 <h3>Alior Bank</h3>
-
-<table id="exchange-rates">
-  <tr>
-    <td>CURRENCY</td>
-    <td>BUY</td>
-    <td>SELL</td>
-  </tr>
-  <% @alior_rates.each do |rate| %>
-    <tr>
-      <td class="code"><%= rate.code %></td>
-      <td class="buy"><%= rate.buy %></td>
-      <td class="sell"><%= rate.sell %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render partial: "table", locals: {rates: @alior_rates} %>
 
 <h3>Walutomat</h3>
+<%= render partial: "table", locals: {rates: @walutomat_rates} %>
 
-<table id="exchange-rates">
-  <tr>
-    <td>CURRENCY</td>
-    <td>BUY</td>
-    <td>SELL</td>
-  </tr>
-  <% @walutomat_rates.each do |rate| %>
-      <tr>
-        <td class="code"><%= rate.code %></td>
-        <td class="buy"><%= rate.buy %></td>
-        <td class="sell"><%= rate.sell %></td>
-      </tr>
-  <% end %>
-</table>
+<h3>Cinkciarz</h3>
+<%= render partial: "table", locals: {rates: @cinkciarz_rates} %>
+

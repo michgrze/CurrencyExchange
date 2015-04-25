@@ -1,0 +1,14 @@
+<table id="exchange-rates">
+  <tr>
+    <td>CURRENCY</td>
+    <td>BUY</td>
+    <td>SELL</td>
+  </tr>
+  <% rates.each do |rate| %>
+      <tr>
+        <td class="code"><%= rate.code %></td>
+        <td class="buy"><%= rate.buy %></td>
+        <td class="sell"><%= rate.sell %></td>
+      </tr>
+  <% end %>
+</table>
