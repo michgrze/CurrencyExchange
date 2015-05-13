@@ -3,6 +3,7 @@ require 'json'
 
 module Parsers
   class Walutomat
+    include ExchangeRateHelper
 
     CURRENCY_NAMES = %w{EUR USD GBP CHF}
     URL = "https://panel.walutomat.pl/api/v1/best_offers.php"
@@ -13,13 +14,11 @@ module Parsers
       walutomat_hash = JSON.parse(open(URL).read)
       @idx = 0
       walutomat_hash['offers'].each do |currency_data|
-        parsed = process_hash currency_data
-        rates << parsed
+        rates << process_hash(currency_data)
         @idx +=1
       end
 
-      change_rates_array_elements rates
-      rates
+      to_float(rates.insert(2, rates.delete_at(3)))
     end
 
     private
@@ -35,14 +34,6 @@ module Parsers
       end
 
       rate = ExchangeRate.new(code: code, sell: sell, buy: buy)
-
-    end
-
-    def change_rates_array_elements(array)
-      change1 = array[2]
-      change2 = array[3]
-      array[2] = change2
-      array[3] = change1
 
     end
 

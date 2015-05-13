@@ -2,6 +2,7 @@ require 'open-uri'
 
 module Parsers
   class Alior
+    include ExchangeRateHelper
 
     CURRENCY_NAMES = %w{EUR USD CHF GBP}
     URL = 'http://kantor.aliorbank.pl/forex'
@@ -19,7 +20,7 @@ module Parsers
         end
       end
 
-      rates
+      to_float rates
 
     end
 

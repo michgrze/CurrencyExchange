@@ -2,14 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table#exchange-rates {
+table.exchange-rates {
   width: 100%;
-  margin: 10px 0px;
+  margin: 10px 0;
   td {
     border: 1px solid #000;
     padding: 5px;
+    width: 0.2em;
   }
-  td.buy, td.sell {
-    width: 20em;
+  td.bargain {
+    color: green;
   }
 }
+

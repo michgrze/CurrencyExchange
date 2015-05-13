@@ -1,12 +1,41 @@
 <h1>EXCHANGE RATES</h1>
 <h2>Current (<%= @current_date %>) exchange rates:</h2>
+<%=@min_eur_buy %>
+<h3>Compare All</h3>
+<table class="exchange-rates">
+  <tr>
+    <td></td>
+    <td colspan="2">Alior Bank</td>
+    <td colspan="2">Walutomat</td>
+    <td colspan="2">Cinkciarz</td>
+  </tr>
+  <tr>
+    <td>Currency</td>
+    <td>BUY</td>
+    <td>SELL</td>
+    <td>BUY</td>
+    <td>SELL</td>
+    <td>BUY</td>
+    <td>SELL</td>
+  </tr>
+  <% @currency_names.each_with_index do |code, index| %>
+      <tr>
+        <td class="code"><%= code %></td>
 
-<h3>Alior Bank</h3>
-<%= render partial: "table", locals: {rates: @alior_rates} %>
+        <td class="<%= @all_rates[index].buy_flag%>"><%= @all_rates[index].buy %></td>
+        <td class="<%= @all_rates[index].sell_flag%>"><%= @all_rates[index].sell %></td>
 
-<h3>Walutomat</h3>
-<%= render partial: "table", locals: {rates: @walutomat_rates} %>
+        <td class="<%= @all_rates[index+4].buy_flag%>"><%= @all_rates[index+4].buy %></td>
+        <td class="<%= @all_rates[index+4].sell_flag%>"><%= @all_rates[index+4].sell %></td>
 
-<h3>Cinkciarz</h3>
-<%= render partial: "table", locals: {rates: @cinkciarz_rates} %>
+        <td class="<%= @all_rates[index+8].buy_flag%>"><%= @all_rates[index+8].buy %></td>
+        <td class="<%= @all_rates[index+8].sell_flag%>"><%= @all_rates[index+8].sell %></td>
+
+      </tr>
+  <% end %>
+</table>
+
+
+
+
 
