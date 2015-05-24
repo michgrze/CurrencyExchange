@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'exchange_rates#index'
 
+  resources :exchange_rates, only: :index
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
