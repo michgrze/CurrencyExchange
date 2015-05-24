@@ -10,7 +10,7 @@ class ExchangeRatesController < ApplicationController
 
       format.html
       format.json do
-        result = { result: @all_rates }
+        result = @all_rates
         render json: result
       end
 

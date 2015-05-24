@@ -16,29 +16,5 @@
     <%= yield %>
     <%= javascript_include_tag "application" %>
 
-<script type="text/javascript">
-
-(function(win, $) {
-
-  var REFRESH_SECONDS = 2;
-
-  var callback = function() {
-
-    var url = '/exchange_rates.json';
-
-    var onFinish = function(response) {
-      console.log(response);
-    };
-
-    $.get(url, onFinish);
-  };
-
-  setInterval(callback, REFRESH_SECONDS * 1000);
-
-})(window, jQuery);
-
-
-</script>
-
   </body>
 </html>
